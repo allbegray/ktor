@@ -167,6 +167,9 @@ object Application {
                         call.respond("관리자 메인")
                     }
                 }
+                getOrPost("/getOrPost") {
+                    println(it)
+                }
                 get("/") {
                     val model = mapOf<String, Any>()
                     call.respond(FreeMarkerContent("index.ftlh", model))
