@@ -33,6 +33,7 @@ import org.jetbrains.ktor.routing.get
 import org.jetbrains.ktor.routing.route
 import org.jetbrains.ktor.routing.routing
 import org.jetbrains.ktor.util.decodeBase64
+import java.io.File
 
 /*
 location 의 data class 의 프로퍼티는 반드시 초기화를 해야 한다.
@@ -95,7 +96,7 @@ object Application {
             commit()
         }
 
-        val staticFolder = File(Application.javaClass.getResource("/static").file)
+        val staticFolder = File(javaClass.getResource("/static").file)
         require(staticFolder.exists()) { "Cannot find ${staticFolder.absolutePath}" }
 
         val hashedUserTable = UserHashedTableAuth(table = mapOf(
